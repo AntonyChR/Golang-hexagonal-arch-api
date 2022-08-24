@@ -1,7 +1,7 @@
 ## Install dependencies
 
 ```
-go get -d ./..
+go get -d ./...
 ```
 
 To use the MySQL repository, uncomment dbConfig in cmd/main.go and change the value of the Host field with your local host IP
