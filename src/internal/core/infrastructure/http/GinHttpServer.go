@@ -17,17 +17,21 @@ type Server struct {
 	port        string
 }
 
+func cors(c *gin.Context){
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Next()
+}
+
 func (s *Server) Start() {
 	server := gin.Default()
+	server.Use(cors)
 
 	server.GET("/id/:id", func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		data := s.todoService.GetById(c.Param("id"))
 		c.JSON(http.StatusOK, data)
 	})
 
 	server.GET("/", func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		data, err := s.todoService.GetAll()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
