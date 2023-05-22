@@ -1,0 +1,14 @@
+# database config
+DB_HOST = "192.168.18.135"
+DB_PORT = "3306"
+DB_USER = "root"
+DB_PASSWORD = "secret"
+DB_NAME = "chat"
+
+# api config 
+ALLOWED_METHODS = ["GET", "POST", "PUT", "DELETE"]
+ALLOWED_ORIGINS = ["http://localhost:6600", "http://localhost:3000"]
+ALLOW_CREDENTIALS = true
+
+# server
+PORT = ":3001"
