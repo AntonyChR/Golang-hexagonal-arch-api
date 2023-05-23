@@ -59,8 +59,8 @@ func main() {
 		ctx.HTML(http.StatusOK, "index.html", gin.H{})
 	})
 
-	swStore := ws.NewWesocketStore()
-	go swStore.Run()
+	wsStore := ws.NewWesocketStore()
+	go wsStore.Run()
 
 	protected := router.Group("/api")
 	protected.Use(middlewares.AuhtRequired())
