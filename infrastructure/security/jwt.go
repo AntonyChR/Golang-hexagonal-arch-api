@@ -8,7 +8,7 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
-const secretKey = "tetasricas"
+const secretKey = "mysecretkey"
 
 func GenerateJWT(user entities.User) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
