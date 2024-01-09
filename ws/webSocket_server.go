@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	//"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 )
 
@@ -28,7 +27,6 @@ func Server(store *ClientStore, ctx *gin.Context, msgService *services.MessageSe
 	defer conn.Close()
 	clientId, _ := ctx.Get("userId")
 	store.RegisterClient(conn, clientId.(string))
-	//store.RegisterClient(conn, uuid.NewString())
 	for {
 		var msg entities.Message
 		err := conn.ReadJSON(&msg)
